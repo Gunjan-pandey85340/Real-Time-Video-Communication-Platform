@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import httpStatus from "http-status";
 
-
-
-
 export const AuthContext =createContext({});
 
 const client = axios.create({
@@ -16,14 +13,9 @@ const client = axios.create({
 export const AuthProvider = ({children}) => {
 
     const authContext = useContext(AuthContext);
-
-
     
     const [userData , setUserData] = useState(authContext);
     const navigate = useNavigate();
-
-
-
 
     const handleRegister = async (name , username, password) =>{
         try {
@@ -83,8 +75,6 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-
-    
     const data = {
         userData, setUserData,addToUserHistory, getHistoryOfUser, handleRegister , handleLogin
     }
